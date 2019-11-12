@@ -1,64 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-boot-crud</artifactId>
-    <name>spring-boot-crud</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!-- (0) <modelVersion/> -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- (1) <parent/> -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
-        <relativePath />
+        <version>2.1.2.RELEASE</version>
     </parent>
 
+    <!-- (2) <groupId/> -->
+    <groupId>edu.ucsb.cs56</groupId>
+
+    <!-- (3) <artifactId/> -->
+    <artifactId>tutor-crud-demo</artifactId>
+
+    <!-- (4) <version/> -->
+    <version>0.1.0</version>
+
+    <!-- (5) <packaging/> -->
+    <packaging>jar</packaging>
+    <!-- (6) <name/> -->
+    <name>tutor-crud-demo</name>
+    <!-- (7) <description/> -->
+    <!-- (8) <url/> -->
+    <url>https://ucsb-cs56.github.io/f19/lab/lab07/</url>
+
+    <!-- (9) <inceptionYear/> -->
+    <!-- (10) <organization/> -->
+    <!-- (11) <licenses/> -->
+    <!-- (12) <developers/> -->
+    <!-- (13) <contributors/> -->
+    <!-- (14) <mailingLists/> -->
+    <!-- (15) <prerequisites/> -->
+    <!-- (16) <modules/> -->
+    <!-- (17) <scm/> -->
+    <!-- (18) <issueManagement/> -->
+    <!-- (19) <ciManagement/> -->
+    <!-- (20) <distributionManagement/> -->
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>file://${project.basedir}/docs/</url>
+        </site>
+    </distributionManagement>
+    <!-- (21) <properties/> -->
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mainClass>com.baeldung.crud.Application</mainClass>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch>
+        <gib.skipTestsForUpstreamModules>true</gib.skipTestsForUpstreamModules>
+        <gib.buildUpstream>false</gib.buildUpstream>
+        <gib.failOnMissingGitDir>false</gib.failOnMissingGitDir>
+        <gib.failOnError>false</gib.failOnError>
+        <gib.enabled>false</gib.enabled>
+
+        <junit.version>4.12</junit.version>
+        <org.hamcrest.version>1.3</org.hamcrest.version>
+        <mockito.version>2.21.0</mockito.version>
+
+        <!-- logging -->
+        <org.slf4j.version>1.7.21</org.slf4j.version>
+        <logback.version>1.1.7</logback.version>
+
+        <!-- plugins -->
+        <!-- can't upgrade the plugin yet; as there is an issue with 2.22 no longer running all the tests-->
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <java.version>1.8</java.version>
+        <log4j.version>1.2.17</log4j.version>
+        <moneta.version>1.1</moneta.version>
+        <esapi.version>2.1.0.1</esapi.version>
+        <jmh-core.version>1.19</jmh-core.version>
+        <jmh-generator.version>1.19</jmh-generator.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
+        <commons-cli.version>1.4</commons-cli.version>
+        <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <jstl-api.version>1.2</jstl-api.version>
+        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
+        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+        <jstl.version>1.2</jstl.version>
+        <jackson.version>2.9.8</jackson.version>
+        <commons-fileupload.version>1.3</commons-fileupload.version>
+        <junit-platform.version>1.2.0</junit-platform.version>
+        <junit-jupiter.version>5.2.0</junit-jupiter.version>
+        <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
+        <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
+        <custom-pmd.version>0.0.1</custom-pmd.version>
+        <gitflow-incremental-builder.version>3.8</gitflow-incremental-builder.version>
+        <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
+        <!-- <maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version> -->
+        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
+        <lombok.version>1.16.12</lombok.version>
+        <h2.version>1.4.197</h2.version>
+    </properties>
+
+    <!-- (22) <dependencyManagement/> -->
+    <!-- (23) <dependencies/> -->
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency> -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+            <optional>true</optional>
+        </dependency> -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.25.0-GA</version>
-        </dependency>
+        <!-- <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+            <optional>true</optional>
+        </dependency> -->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        <!-- jpa, crud repository -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>5.11.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
         <!-- <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>  -->
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency> -->
 
-
-        <!-- PostgreSQL -->
+        <!-- https://mvnrepository.com/artifact/com.jcabi/jcabi-github -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.jcabi</groupId>
+            <artifactId>jcabi-github</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.1.4</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
@@ -68,10 +203,31 @@
             <version>2.3.1</version>
         </dependency>
 
+      
+
+        <!-- Test coverage ( https://www.eclemma.org/jacoco/ )-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.5</version>
+        </dependency>
+
+        <!-- PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>  -->
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.25.0-GA</version>
         </dependency>
 
         <dependency>
@@ -89,6 +245,7 @@
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
@@ -154,102 +311,101 @@
         </dependency>
 
     </dependencies>
+    <!-- (24) <repositories/> -->
+    <!-- (25) <pluginRepositories/> -->
+    <!-- (26) <build/> -->
 
     <build>
-        <finalName>spring-boot-crud</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <classifier>exec</classifier>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+
+
+            <!-- Fix the error 
+        Exit code: 1 - javadoc: error - The code being documented uses modules
+        but the packages defined in http://docs.oracle.com/javase/8/docs/api/
+        are in the unnamed module. -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <source>11</source>
                 </configuration>
+                <version>3.1.0</version>
+            </plugin>
+
+
+            <!-- Make jar file executable -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- full package name of class with the main you want to run -->
+                            <mainClass>${mainClass}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Test case coverage report -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.5</version>
                 <executions>
                     <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.8.2</version>
+            </plugin>
         </plugins>
     </build>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch>
-        <gib.skipTestsForUpstreamModules>true</gib.skipTestsForUpstreamModules>
-        <gib.buildUpstream>false</gib.buildUpstream>
-        <gib.failOnMissingGitDir>false</gib.failOnMissingGitDir>
-        <gib.failOnError>false</gib.failOnError>
-        <gib.enabled>false</gib.enabled>
-
-        <junit.version>4.12</junit.version>
-        <org.hamcrest.version>1.3</org.hamcrest.version>
-        <mockito.version>2.21.0</mockito.version>
-
-        <!-- logging -->
-        <org.slf4j.version>1.7.21</org.slf4j.version>
-        <logback.version>1.1.7</logback.version>
-
-        <!-- plugins -->
-        <!-- can't upgrade the plugin yet; as there is an issue with 2.22 no longer running all the tests-->
-        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <java.version>1.8</java.version>
-        <log4j.version>1.2.17</log4j.version>
-        <moneta.version>1.1</moneta.version>
-        <esapi.version>2.1.0.1</esapi.version>
-        <jmh-core.version>1.19</jmh-core.version>
-        <jmh-generator.version>1.19</jmh-generator.version>
-        <hamcrest-all.version>1.3</hamcrest-all.version>
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
-        <commons-io.version>2.5</commons-io.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <commons-lang3.version>3.5</commons-lang3.version>
-        <commons-cli.version>1.4</commons-cli.version>
-        <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <jstl-api.version>1.2</jstl-api.version>
-        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
-        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
-        <jstl.version>1.2</jstl.version>
-        <jackson.version>2.9.8</jackson.version>
-        <commons-fileupload.version>1.3</commons-fileupload.version>
-        <junit-platform.version>1.2.0</junit-platform.version>
-        <junit-jupiter.version>5.2.0</junit-jupiter.version>
-        <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
-        <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
-        <custom-pmd.version>0.0.1</custom-pmd.version>
-        <gitflow-incremental-builder.version>3.8</gitflow-incremental-builder.version>
-        <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
-        <!-- <maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version> -->
-        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
-        <lombok.version>1.16.12</lombok.version>
-        <h2.version>1.4.197</h2.version>
-
-    </properties>
+    <!-- (27) <reporting/> -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.9</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <!-- any further custom report here -->
+        </plugins>
+    </reporting>
+    <!-- (28) <profiles/> -->
 
 </project>
+
