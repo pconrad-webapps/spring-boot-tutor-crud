@@ -1,0 +1,6 @@
+ https://github.com/pconrad-webapps/spring-boot-crud/pull/new/pcPostgres
+remote: 
+
+logging.level.com.baeldung.crud.controllers.UserController=INFO
+spring.output.ansi.enabled=DETECT
+logging.level.org.hibernate.SQL=debug
